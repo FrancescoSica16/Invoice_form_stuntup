@@ -16,32 +16,32 @@ class CreateInvoicesTable extends Migration
         // DEFINIRE COLUMN TYPE
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->string('TIPO FATTURA');
-            $table->string('RESELLER');
-            $table->string('RAGIONE SOCIALE');
-            $table->string('INDIRIZZO FATTURAZIONE');
+            $table->string('TIPO_FATTURA', 100);
+            $table->string('RESELLER', 100);
+            $table->string('RAGIONE_SOCIALE', 100);
+            $table->string('INDIRIZZO_FATTURAZIONE', 100);
 
             $table->string('CAP', 5);
-            $table->string('COMUNE');
-            $table->string('PROVINCIA');
-            $table->string('CODICE FISCALE');
+            $table->string('COMUNE', 50);
+            $table->string('PROVINCIA', 50);
+            $table->string('CODICE_FISCALE', 20);
 
-            $table->string('PARTITA IVA');
-            $table->string('CODICE CLIENTE');
-            $table->string('CODICE CONTRATTO');
-            $table->string('NUMERO FATTURA');
-            $table->date('DATA FATTURA');
-            $table->date('DATA SCADENZA');
+            $table->string('PARTITA_IVA', 30);
+            $table->string('CODICE_CLIENTE');
+            $table->string('CODICE_CONTRATTO');
+            $table->string('NUMERO_FATTURA');
+            $table->date('DATA_FATTURA');
+            $table->date('DATA_SCADENZA');
 
-            $table->string('DESCRIZIONE 1');
-            $table->integer('IMPONIBILE 1');
-            $table->string('DESCRIZIONE 2');
-            $table->integer('IMPONIBILE 2');
-            $table->string('DESCRIZIONE 3');
-            $table->integer('IMPONIBILE 3');
+            $table->longText('DESCRIZIONE_1');
+            $table->integer('IMPONIBILE_1');
+            $table->longText('DESCRIZIONE_2');
+            $table->integer('IMPONIBILE_2');
+            $table->longText('DESCRIZIONE_3');
+            $table->integer('IMPONIBILE_3');
 
             $table->string('IVA');
-            $table->string('PROGRESSIVO XML');
+            $table->string('PROGRESSIVO_XML');
             $table->timestamps();
         });
     }
