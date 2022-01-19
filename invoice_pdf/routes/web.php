@@ -23,3 +23,6 @@ Route::get('create_edit_invoice', [InvoiceController::class, 'create'])->name('c
 Route::get('show_invoice/{NUMERO_FATTURA}', [InvoiceController::class, 'show'])->name('show_invoice');
 
 Route::post('create_edit_invoice', [InvoiceController::class, 'store'])->name('invoice_creator');
+
+Route::get('preview', 'PDFController@preview');
+Route::get('generate-pdf', 'PDFController@generatePDF');
