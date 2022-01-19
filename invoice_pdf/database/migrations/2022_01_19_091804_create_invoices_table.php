@@ -16,32 +16,32 @@ class CreateInvoicesTable extends Migration
         // DEFINIRE COLUMN TYPE
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->string('TIPO_FATTURA', 100);
-            $table->string('RESELLER', 100);
-            $table->string('RAGIONE_SOCIALE', 100);
-            $table->string('INDIRIZZO_FATTURAZIONE', 100);
+            $table->string('TIPO_FATTURA', 100)->nullable();
+            $table->string('RESELLER', 100)->nullable();
+            $table->string('RAGIONE_SOCIALE', 100)->nullable();
+            $table->string('INDIRIZZO_FATTURAZIONE', 100)->nullable();
 
-            $table->string('CAP', 5);
-            $table->string('COMUNE', 50);
-            $table->string('PROVINCIA', 50);
-            $table->string('CODICE_FISCALE', 20);
+            $table->string('CAP', 5)->nullable();
+            $table->string('COMUNE', 50)->nullable();
+            $table->string('PROVINCIA', 50)->nullable();
+            $table->string('CODICE_FISCALE', 20)->nullable();
 
-            $table->string('PARTITA_IVA', 30);
-            $table->string('CODICE_CLIENTE');
-            $table->string('CODICE_CONTRATTO');
+            $table->string('PARTITA_IVA', 30)->nullable();
+            $table->string('CODICE_CLIENTE')->nullable();
+            $table->string('CODICE_CONTRATTO')->nullable();
             $table->string('NUMERO_FATTURA');
-            $table->date('DATA_FATTURA');
-            $table->date('DATA_SCADENZA');
+            $table->date('DATA_FATTURA', )->nullable();
+            $table->date('DATA_SCADENZA')->nullable();
 
-            $table->longText('DESCRIZIONE_1');
-            $table->integer('IMPONIBILE_1');
-            $table->longText('DESCRIZIONE_2');
-            $table->integer('IMPONIBILE_2');
-            $table->longText('DESCRIZIONE_3');
-            $table->integer('IMPONIBILE_3');
+            $table->longText('DESCRIZIONE_1')->nullable();
+            $table->integer('IMPONIBILE_1')->nullable();
+            $table->longText('DESCRIZIONE_2')->nullable();
+            $table->integer('IMPONIBILE_2')->nullable();
+            $table->longText('DESCRIZIONE_3')->nullable();
+            $table->integer('IMPONIBILE_3')->nullable();
 
-            $table->string('IVA');
-            $table->string('PROGRESSIVO_XML');
+            $table->string('IVA')->nullable();
+            $table->string('PROGRESSIVO_XML')->nullable();
             $table->timestamps();
         });
     }

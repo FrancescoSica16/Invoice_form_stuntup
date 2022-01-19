@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Model\Invoice;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
@@ -23,9 +24,10 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('create_edit_invoice');
+        $invoice = new Invoice();
+        return view('create_edit_invoice', compact('invoice'));
     }
 
     /**
@@ -36,7 +38,14 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $invoice = new Invoice;
+
+        $invoice->fill($data);
+        $invoice->save();
+
+        return redirect()->route('show_invoice', $invoice->NUMERO_FATTURA);
     }
 
     /**
@@ -45,9 +54,12 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show(Invoice $invoice , $NUMERO_FATTURA)
+    {      
+        
+        $invoice = DB::table('invoices')->select()->where('NUMERO_FATTURA', '=' , $NUMERO_FATTURA)->get();
+    //  dd($invoice->TIPO_FATTURA);
+        return view("show_invoice", compact("NUMERO_FATTURA", "invoice"));
     }
 
     /**
