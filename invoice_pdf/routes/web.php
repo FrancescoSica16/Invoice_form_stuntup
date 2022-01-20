@@ -13,7 +13,6 @@ use App\Http\Controllers\InvoiceController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,5 +23,6 @@ Route::get('show_invoice/{NUMERO_FATTURA}', [InvoiceController::class, 'show'])-
 
 Route::post('create_edit_invoice', [InvoiceController::class, 'store'])->name('invoice_creator');
 
-Route::get('preview', 'PDFController@preview');
-Route::get('generate-pdf', 'PDFController@generatePDF');
+// route for generate and preview PDF
+Route::get('preview/{NUMERO_FATTURA}', 'PDFController@preview')->name('invoice_preview');
+Route::get('generate-pdf/{NUMERO_FATTURA}', 'PDFController@generatePDF')->name('invoice_generate_pdf');

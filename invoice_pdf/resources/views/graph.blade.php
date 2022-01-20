@@ -47,10 +47,19 @@
 {{-- <body onload="init()"> --}}
 
 <body>
-    <img src="{{asset('storage\futura_energia_logo.jpeg')}}" alt="">
-<h2 style="text-align: center; ">Generate PDF with Graph in Laravel</h2>
-<div id="chart_div" class="pie-chart"></div>
-<h2 style="text-align: center; ">MyNotePaper.com</h2>
+    <img class="m-5" src="{{asset('storage\futura_energia_logo.jpeg')}}" alt="">
+    <h1>NUMERO FATTURA : {{$NUMERO_FATTURA}}</h1>
+      <thead>
+        
+    </thead> 
+    @foreach ($invoice as $item)   
+        <h1 class="m-5">{{$item->TIPO_FATTURA}}</h1>
+    
+   
+        {{$item->RESELLER}}
+    
+        {{$item->INDIRIZZO_FATTURAZIONE}}</td>   
+    @endforeach
 
 </body>
 </html>

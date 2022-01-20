@@ -35,17 +35,20 @@
                 <td class="w-25">{{$item->COMUNE}}</td>
             </tr>
             
-        @endforeach
-       
-            
-             
-        
+        @endforeach  
     </tbody>    
     </table>
 
-    {{-- <a href="{{route("generate_pdf", $bill_number )}}">
-        <button class="btn btn-primary m-3">Genera PDF fattura</button>
-    </a> --}}
+    <a href="{{route("invoice_preview", $NUMERO_FATTURA )}}">
+        <button class="btn btn-primary m-3">
+            Genera preview PDF fattura
+        </button>
+    </a>
+    <a href="{{route("invoice_generate_pdf", $NUMERO_FATTURA )}}">
+        <button class="btn btn-danger m-3">
+            Salva PDF fattura
+        </button>
+    </a>
     
 </body>
 </html>
