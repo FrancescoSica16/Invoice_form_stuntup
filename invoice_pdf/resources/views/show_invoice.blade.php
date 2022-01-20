@@ -9,6 +9,8 @@
 </head>
 <body>
      <h3>la tua fattura n°{{$NUMERO_FATTURA}}</h3>
+     
+<img src="{{asset('storage\futura_energia_logo.jpeg')}}" alt="">
     <table class="table table-dark w-75">
 
     {{-- <thead>

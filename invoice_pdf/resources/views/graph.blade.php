@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {{-- make sure you are using http, and not https --}}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <style>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- <style>
         .pie-chart {
             width: 600px;
             height: 400px;
             margin: 0 auto;
         }
-    </style>
-    {{-- make sure you are using http, and not https --}}
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    </style> --}}
+
+    {{-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
     <script type="text/javascript">
         function init() {
@@ -40,11 +42,12 @@
             var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
             chart.draw(data, options);
         }
-    </script>
+    </script> --}}
 </head>
+{{-- <body onload="init()"> --}}
 
-<body onload="init()">
-
+<body>
+    <img src="{{asset('storage\futura_energia_logo.jpeg')}}" alt="">
 <h2 style="text-align: center; ">Generate PDF with Graph in Laravel</h2>
 <div id="chart_div" class="pie-chart"></div>
 <h2 style="text-align: center; ">MyNotePaper.com</h2>
