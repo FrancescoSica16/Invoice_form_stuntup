@@ -17,7 +17,7 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->string('TIPO_FATTURA', 100)->nullable();
-            $table->string('RESELLER', 100)->nullable();
+            // $table->string('RESELLER', 100)->nullable();
             $table->string('RAGIONE_SOCIALE', 100)->nullable();
             $table->string('INDIRIZZO_FATTURAZIONE', 100)->nullable();
 

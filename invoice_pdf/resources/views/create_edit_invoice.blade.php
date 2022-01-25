@@ -18,13 +18,13 @@
             <input type="text" class="form-control" id="TIPO_FATTURA" name="TIPO_FATTURA" value="">
           </div>
         </div>
-
+{{-- 
         <div class="form-group mb-3">
             <label for="RESELLER" class="col-form-label">RESELLER</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="RESELLER" name="RESELLER"  value="">
             </div>
-        </div>
+        </div> --}}
         
         <div class="form-group mb-3">
             <label for="RAGIONE_SOCIALE" class="col-form-label">RAGIONE SOCIALE</label>

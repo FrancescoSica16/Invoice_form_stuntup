@@ -10,7 +10,7 @@
 <body>
      <h3>la tua fattura n°{{$NUMERO_FATTURA}}</h3>
      
-<img src="{{asset('storage\futura_energia_logo.jpeg')}}" alt="">
+<img src="{{asset('storage\futura_energia_logo.jpg')}}" alt="">
     <table class="table table-dark w-75">
 
     {{-- <thead>
@@ -22,9 +22,9 @@
             <tr>
                 <td class="w-25">{{$item->TIPO_FATTURA}}</td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <td class="w-25">{{$item->RESELLER}}</td>
-            </tr>
+            </tr> --}}
             <tr>
                 <td class="w-25">{{$item->INDIRIZZO_FATTURAZIONE}}</td>
             </tr>

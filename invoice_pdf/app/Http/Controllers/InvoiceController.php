@@ -27,7 +27,9 @@ class InvoiceController extends Controller
     public function create(Request $request)
     {
         $invoice = new Invoice();
-        return view('create_edit_invoice', compact('invoice'));
+        $reseller_list =  DB::table('resellers')->select('id', 'reseller_name')->get();
+        // dd($reseller_list);
+        return view('create_edit_invoice', compact('invoice', 'reseller_list'));
     }
 
     /**
