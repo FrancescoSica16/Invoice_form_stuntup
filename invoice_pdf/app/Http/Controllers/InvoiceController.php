@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Model\Invoice;
+use App\Model\Reseller;
 use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
@@ -16,7 +17,9 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
+        $list_invoice = DB::table('invoices')->select('NUMERO_FATTURA', )->get();
+
+        return view('index_invoice' , compact('list_invoice'));
     }
 
     /**
@@ -28,7 +31,7 @@ class InvoiceController extends Controller
     {
         $invoice = new Invoice();
         $reseller_list =  DB::table('resellers')->select('id', 'reseller_name')->get();
-        // dd($reseller_list);
+        
         return view('create_edit_invoice', compact('invoice', 'reseller_list'));
     }
 
@@ -39,12 +42,10 @@ class InvoiceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $data = $request->all();
-
-        $invoice = new Invoice;
-
-        $invoice->fill($data);
+    {    
+        $data = $request->all();  
+        $invoice = new Invoice;      
+        $invoice->fill($data);      
         $invoice->save();
 
         return redirect()->route('show_invoice', $invoice->NUMERO_FATTURA);
@@ -56,11 +57,10 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice , $NUMERO_FATTURA)
+    public function show(Reseller $reseller , Invoice $invoice , $NUMERO_FATTURA)
     {      
         
-        $invoice = DB::table('invoices')->select()->where('NUMERO_FATTURA', '=' , $NUMERO_FATTURA)->get();
-    //  dd($invoice->TIPO_FATTURA);
+        $invoice = DB::table('invoices')->select('resellers.*', 'invoices.*')->join('resellers', 'invoices.reseller_id', '=', 'resellers.id')->where('NUMERO_FATTURA', '=' , $NUMERO_FATTURA)->get();   
         return view("show_invoice", compact("NUMERO_FATTURA", "invoice"));
     }
 

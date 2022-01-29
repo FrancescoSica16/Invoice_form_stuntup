@@ -8,7 +8,7 @@ class Invoice extends Model
 {
     protected $guarded = [];
 
-    public function reseller(){
-        return $this->belongsTo('App\Model\Reseller');
+    public function resellers(){
+        return $this->hasMany('App\Model\Reseller');
     }
 }

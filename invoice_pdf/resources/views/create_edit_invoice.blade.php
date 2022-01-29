@@ -25,7 +25,16 @@
               <input type="text" class="form-control" id="RESELLER" name="RESELLER"  value="">
             </div>
         </div> --}}
-        
+        <div class="form-group mb-3">
+          <select class="custom-select" name="reseller_id" id="reseller_id">
+            <option value="{{null}}">-</option>
+            @foreach ($reseller_list as $reseller)
+              <option value="{{ $reseller->id }}">{{ $reseller->reseller_name }}</option>  
+            @endforeach 
+
+          </select>
+        </div>
+
         <div class="form-group mb-3">
             <label for="RAGIONE_SOCIALE" class="col-form-label">RAGIONE SOCIALE</label>
             <div class="col-sm-10">
@@ -167,7 +176,15 @@
         </div>
         
         <button type="submit" class="btn btn-danger m-3">Salva Fattura</button>
+        <button type="button" class="reset_fields">Cancella campi</button>
       </form>
     
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+  $('.reset_fields').click(function(){
+    $('input').val('');
+  });
+</script>
 </html>

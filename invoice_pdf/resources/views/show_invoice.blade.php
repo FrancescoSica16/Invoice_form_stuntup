@@ -22,9 +22,10 @@
             <tr>
                 <td class="w-25">{{$item->TIPO_FATTURA}}</td>
             </tr>
-            {{-- <tr>
-                <td class="w-25">{{$item->RESELLER}}</td>
-            </tr> --}}
+            
+             <tr>
+                <td class="w-25">{{$item->reseller_name}}</td>
+            </tr> 
             <tr>
                 <td class="w-25">{{$item->INDIRIZZO_FATTURAZIONE}}</td>
             </tr>
@@ -39,9 +40,9 @@
     </tbody>    
     </table>
 
-    <a href="{{route("invoice_preview", $NUMERO_FATTURA )}}">
+    <a href="{{route("send-email", $NUMERO_FATTURA )}}">
         <button class="btn btn-primary m-3">
-            Genera preview PDF fattura
+           Invia PDF fattura
         </button>
     </a>
     <a href="{{route("invoice_generate_pdf", $NUMERO_FATTURA )}}">

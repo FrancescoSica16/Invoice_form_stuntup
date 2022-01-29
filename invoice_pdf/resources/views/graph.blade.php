@@ -15,13 +15,13 @@
 @foreach ($invoice as $item)
       <h1>Fattura n° {{$item->NUMERO_FATTURA}}</h1>
       <div id="company" class="clearfix">
-        <div>{{$item->RESELLER}}</div>
+        <div>{{$item->reseller_name}}</div>
         <div>Via delle bicocche<br /> SA 84084</div>
         <div>(602) 519-0450</div>
         <div><a href="mailto:company@example.com">futura.energia@example.com</a></div>
       </div>
       <div id="project">
-        <div><span>Tipo fattura</span> {{$item->RESELLER}}/div>
+        <div><span>Tipo fattura</span> {{$item->reseller_name}}/div>
         <div><span>CLIENTE</span> {{$item->CODICE_CLIENTE}}</div>
         <div><span>INDIRIZZO </span> {{$item->INDIRIZZO_FATTURAZIONE}}</div>
         <div><span>EMAIL</span> <a href="mailto:john@example.com">CLIENTE@example.com</a></div>
